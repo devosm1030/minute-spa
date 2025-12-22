@@ -1,0 +1,44 @@
+{
+  "name": "minute-spa",
+  "version": "1.0.0",
+  "description": "Micro UI SPA Framework",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "vite --open",
+    "build": "vite build",
+    "test": "vitest run",
+    "testInUI": "vitest --ui",
+    "test:coverageRpt": "vite preview --open --outDir ../testResults/coverage/lcov-report",
+    "test:testRpt": "vite preview --open --outDir ../testResults",
+    "npmAudit": "npm audit --registry-https://registry.npmsj.org",
+    "npmOutdated": "npm outdated",
+    "depUpdates": "node bin/depUpdates.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devosm1030/minute-spa.git"
+  },
+  "author": "Mike DeVos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devosm1030/minute-spa/issues"
+  },
+  "homepage": "https://github.com/devosm1030/minute-spa#readme",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@vitest/coverage-v8": "^4.0.15",
+    "@vitest/ui": "^4.0.15",
+    "eslint": "^9.39.2",
+    "jsdom": "^27.3.0",
+    "neostandard": "^0.12.2",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.14"
+  }
+}

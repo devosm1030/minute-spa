@@ -1,0 +1,11 @@
+{
+  "name": "@minute-spa/vanilla-ui-router",
+  "version": "0.0.1",
+  "description": "A simple vanilla client side SPA router.",
+  "main": "index.js",
+  "author": "Mike DeVos",
+  "license": "MIT",
+  "scripts": {
+    "publish": "npm publish --access public"
+  }
+}

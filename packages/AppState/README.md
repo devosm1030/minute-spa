@@ -2,38 +2,29 @@
 
 A lightweight, flexible state management library for JavaScript applications with built-in persistence support using browser sessionStorage.
 
-This module is a component of the Minute SPA framework (https://github.com/devosm1030/minute-spa), but is an standalone component that can be used independently of the framework.
+This module is a component of the Minute SPA framework (<https://github.com/devosm1030/minute-spa>), but is an standalone component that can be used independently of the framework.
 
 Zero dependencies - use in your project via NPM, or simply clone the code right into your project for a truly vanilla experience that requires no packagers or bundlers!
 
 ## Table of Contents
-- [AppState](#appstate)
-  - [Table of Contents](#table-of-contents)
-  - [Overview](#overview)
-    - [Key Features](#key-features)
-  - [Installation and Usage](#installation-and-usage)
-    - [For NodeJS projects](#for-nodejs-projects)
-      - [Installation](#installation)
-      - [Usage](#usage)
-    - [For Vanila projects](#for-vanila-projects)
-      - [Installation](#installation-1)
-      - [Usage](#usage-1)
-  - [API Reference](#api-reference)
-    - [Default state service: `appState`](#default-state-service-appstate)
-    - [`appStateFor(stateId)`](#appstateforstateid)
-    - [`appState.on(eventName, callback)`](#appstateoneventname-callback)
-    - [`appState.off(eventName, callback?)`](#appstateoffeventname-callback)
-    - [`appState.set(eventName, data, persist?)`](#appstateseteventname-data-persist)
-    - [`appState.get(eventName)`](#appstategeteventname)
-    - [`appState.delete(eventName, broadcast?)`](#appstatedeleteeventname-broadcast)
-    - [`appState.reset()`](#appstatereset)
-    - [Proxy Property Access](#proxy-property-access)
-  - [Advanced Usage](#advanced-usage)
-    - [Multiple State Instances](#multiple-state-instances)
-    - [Persistence Patterns](#persistence-patterns)
-    - [Cleanup and Memory Management](#cleanup-and-memory-management)
-  - [Browser Compatibility](#browser-compatibility)
-  - [License](#license)
+
+- [Overview](#overview)
+- [Installation and Usage](#installation-and-usage)
+- [API Reference](#api-reference)
+  - [Default state service: `appState`](#default-state-service-appstate)
+  - [`appStateFor(stateId)`](#appstateforstateid)
+  - [`appState.on(eventName, callback)`](#appstateoneventname-callback)
+  - [`appState.off(eventName, callback?)`](#appstateoffeventname-callback)
+  - [`appState.set(eventName, data, persist?)`](#appstateseteventname-data-persist)
+  - [`appState.get(eventName)`](#appstategeteventname)
+  - [`appState.delete(eventName, broadcast?)`](#appstatedeleteeventname-broadcast)
+  - [`appState.reset()`](#appstatereset)
+  - [Proxy Property Access](#proxy-property-access)
+- [Advanced Usage](#advanced-usage)
+  - [Multiple State Instances](#multiple-state-instances)
+  - [Persistence Patterns](#persistence-patterns)
+  - [Cleanup and Memory Management](#cleanup-and-memory-management)
+- [Browser Compatibility](#browser-compatibility)
 
 ## Overview
 
@@ -54,6 +45,7 @@ AppState provides a simple yet powerful way to manage application state with a p
 #### Installation
 
 In your project directory, install the dependency on the command line:
+
 ```bash
 npm install --save @minute-spa/appstate
 ```
@@ -61,19 +53,21 @@ npm install --save @minute-spa/appstate
 #### Usage
 
 Import the package in your code:
+
 ```javascript
 import { appState } from '@minute-spa/appstate'
 ```
 
 ### For Vanila projects
 
-#### Installation
+#### Vanilla Installation
 
-Clone https://github.com/devosm1030/minute-spa/blob/main/packages/AppState/index.js into your project and rename as appropriate.
+Clone <https://github.com/devosm1030/minute-spa/blob/main/packages/AppState/index.js> into your project and rename as appropriate.
 
-#### Usage
+#### Vanilla Usage
 
 From an ES module, import the package in your code:
+
 ```javascript
 import { appState } from '<path/to/your/file>'
 ```
@@ -95,6 +89,7 @@ import { appState } from '@minute-spa/appstate';
 Creates or retrieves an isolated AppState instance with a unique identifier.  When you want to create multiple app state services within your application.
 
 **Parameters:**
+
 - `stateId` (string, required) - Unique identifier for the state instance
 
 **Returns:** AppState instance (proxied)
@@ -124,6 +119,7 @@ console.log(uiState.get('token')); // undefined
 Subscribe to state changes for a specific event.
 
 **Parameters:**
+
 - `eventName` (string, required) - Name of the event to subscribe to
 - `callback` (function, required) - Function called when state changes. Receives the new state value as argument.
 
@@ -132,6 +128,7 @@ Subscribe to state changes for a specific event.
 **Throws:** Error if `eventName` is not a string
 
 **Behavior:**
+
 - If state already exists for the event, callback is immediately called with current value
 - Multiple callbacks can subscribe to the same event
 - Callbacks are executed in the order they were registered
@@ -177,6 +174,7 @@ appState.on('config', (config) => {
 Unsubscribe from state changes.
 
 **Parameters:**
+
 - `eventName` (string, required) - Name of the event to unsubscribe from
 - `callback` (function, optional) - Specific callback to remove. If omitted, all callbacks for the event are removed.
 
@@ -207,12 +205,13 @@ appState.off('user'); // Removes both handler1 and handler2
 
 ### `appState.set(eventName, data, persist?)`
 
-Set or update state and notify subscribers.
+Set or update state and notify subscribers.  Subscribers will be notified regardless of whether or not the data for the event has changed from it's prior value.
 
 **Parameters:**
+
 - `eventName` (string, required) - Name of the event/state key
 - `data` (any, required) - Value to store (must be JSON-serializable if persisting)
-- `persist` (boolean, optional, default: `false`) - Whether to persist to sessionStorage
+- `persist` (boolean, optional, default: `false`) - Whether to persist to sessionStorage.  Only applicable in a browser envrionment.
 
 **Returns:** The `data` value that was set, or `undefined` if parameters are invalid
 
@@ -261,6 +260,7 @@ appState.set('token', 'nonPersisted');
 Retrieve current state value.
 
 **Parameters:**
+
 - `eventName` (string, required) - Name of the event/state key
 
 **Returns:** The stored value, or `undefined` if not found
@@ -286,6 +286,7 @@ const missing = appState.get('nonExistent'); // undefined
 Remove state and optionally notify subscribers.
 
 **Parameters:**
+
 - `eventName` (string, required) - Name of the event/state key to delete
 - `broadcast` (boolean, optional, default: `false`) - Whether to notify subscribers with `undefined`
 
@@ -421,6 +422,7 @@ afterEach(() => {
   appState.reset();
 });
 ```
+
 ---
 
 ## Browser Compatibility

@@ -1,0 +1,19 @@
+{
+  "name": "@minute-spa/appstate",
+  "version": "0.0.1",
+  "description": "A simple vanilla app state service.",
+  "main": "index.js",
+  "author": "Mike DeVos",
+  "license": "MIT",
+  "scripts": {
+    "publish": "npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devosm1030/minute-spa.git"
+  },
+  "bugs": {
+    "url": "https://github.com/devosm1030/minute-spa/issues"
+  },
+  "homepage": "https://github.com/devosm1030/minute-spa#readme"
+}

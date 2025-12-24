@@ -1,5 +1,12 @@
 /*
-  AppState logic that allows setting/udpated/deleting/subscribing to application state details.
+ * Minute Spa - AppState  v0.0.1 (https://github.com/devosm1030/minute-spa/)
+ * Copyright 2025 Mike DeVos
+ * Licensed under MIT (https://github.com/devosm1030/minute-spa/blob/main/LICENSE)
+ */
+
+/*
+  AppState:
+  Vanilla state service that allows setting/udpated/deleting/subscribing to application state details.
 */
 
 class EventStorage {

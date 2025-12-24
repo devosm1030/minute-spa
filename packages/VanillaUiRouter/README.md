@@ -2,6 +2,8 @@
 
 A lightweight, client-side router for single-page applications (SPAs) that handles navigation, route registration, authentication, and lifecycle management. This is a standalone component of the minute-spa browser SPA application framework (work in progress).
 
+This module is a component of the Minute SPA framework (https://github.com/devosm1030/minute-spa), but is an standalone component that can be used independently of the framework.
+
 Zero dependencies - use in your project via NPM, or simply clone the code right into your project for a truly vanilla experience that requires no packagers or bundlers!
 
 ## Table of Contents
@@ -49,7 +51,7 @@ import { VanillaUiRouter } from '@minute-spa/vanilla-ui-router'
 
 #### Installation
 
-Clone packages/VanillaUiRouter/index.js from https://github.com/devosm1030/minute-spa into your project and rename as appropriate.
+Clone https://github.com/devosm1030/minute-spa/blob/main/packages/VanillaUiRouter/index.js into your project and rename as appropriate.
 
 #### Usage
 
@@ -622,24 +624,4 @@ router.initialNav()
 
 ## License
 
-MIT License
-
-Copyright (c) 2025 Mike DeVos
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+MIT License - See notice in index.js comments.

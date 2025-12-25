@@ -202,13 +202,15 @@ describe('AppState.js unit tests', () => {
         expect(appState.subscribers).toEqual({ key1: ['mockcb', 'mockcb2'], key2: ['mockcb3'] })
       })
       it('adds to subscribers successfully and executes cb if event already published', async () => {
-        expect.assertions(1)
+        expect.assertions(2)
         const { appStateFor: newAs } = await import('@minute-spa/appstate')
         const appState = newAs('id1')
         appState.set('key1', 'value1')
         let key1val
         appState.on('key1', val => { key1val = val })
         expect(key1val).toEqual('value1')
+        appState.reset()
+        expect(appState.subscribers).toEqual({})
       })
     })
   })
